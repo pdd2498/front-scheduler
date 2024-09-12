@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+Here’s a README file for your React application. It includes information about the project, setup instructions, and how to use the various features.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# React Scheduler App
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+This is a React application for managing scheduled messages. It interacts with a backend API to save and retrieve data, and includes features to display scheduled messages and submit new ones.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Home Page**: Displays a list of scheduled messages retrieved from the backend.
+- **Form Page**: Allows users to submit new messages along with a date for scheduling.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-repo/react-scheduler-app.git
+   ```
 
-### `npm run build`
+2. **Navigate to the Project Directory**:
+   ```bash
+   cd react-scheduler-app
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Configuration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You don’t need additional configuration for this React application, but make sure that the backend API is running and accessible at the following URLs:
 
-### `npm run eject`
+- **Save Data Endpoint**: `https://back-scheduler.onrender.com/message/send`
+- **Get Data Endpoint**: `https://back-scheduler.onrender.com/message/data`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## API Endpoints
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. **Save Data**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **URL**: `https://back-scheduler.onrender.com/message/send`
+- **Method**: `POST`
+- **Description**: Save a new message to the backend.
+- **Request Body**:
+  ```json
+  {
+    "email": "user@example.com",
+    "message": "Your message here",
+    "date": "YYYY-MM-DD"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "success": true,
+    "message": "Data saved successfully"
+  }
+  ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. **Get Data**
 
-## Learn More
+- **URL**: `https://back-scheduler.onrender.com/message/data`
+- **Method**: `GET`
+- **Description**: Retrieve all stored messages.
+- **Response**:
+  ```json
+  {
+    "data": [
+      {
+        "_id": "unique-id",
+        "email": "user@example.com",
+        "message": "Your message here",
+        "date": "YYYY-MM-DD"
+      },
+      ...
+    ]
+  }
+  ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. **Home Component**
 
-### Code Splitting
+- Fetches and displays the list of messages.
+- Includes a navigation link to the Form component.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 2. **Form Component**
 
-### Analyzing the Bundle Size
+- Allows users to input a new message with an email, message, and date.
+- Submits the form data to the backend API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
