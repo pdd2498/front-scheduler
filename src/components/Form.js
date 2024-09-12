@@ -21,7 +21,7 @@ export default function Form() {
 
         try {
             // Send POST request to your backend
-            const response = await axios.post('http://localhost:10000/message/send', formData);
+            const response = await axios.post('https://back-scheduler.onrender.com/message/send', formData);
             if (response.data.sucess) {
                 alert("Data sent successfully!")
             } else{

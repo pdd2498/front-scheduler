@@ -10,7 +10,7 @@ export default function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:10000/message/data');
+                const response = await axios.get('https://back-scheduler.onrender.com/message/data');
                 setMessages(response.data.data); // Set the data to the state
             } catch (error) {
                 console.error("Error fetching data", error);
